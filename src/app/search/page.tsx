@@ -1,0 +1,42 @@
+// app/search/page.tsx
+
+import { Metadata } from 'next';
+
+interface SearchPageProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export function generateMetadata({ searchParams }: SearchPageProps): Metadata {
+  const query = searchParams.query;
+  const title = query ? `نتائج البحث لـ "${query}"` : 'صفحة البحث';
+  const description = query
+      ? `عرض نتائج البحث المتعلقة بـ "${query}".`
+      : 'استخدم صفحة البحث للعثور على المحتوى المطلوب.';
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+    },
+    twitter: {
+      card: 'summary',
+      title,
+      description,
+    },
+  };
+}
+
+export default function SearchPage({ searchParams }: SearchPageProps) {
+  const query = searchParams.query;
+
+  // Implement your search logic here using the 'query' parameter
+
+  return (
+    <section>
+      <h1>بتدور علي: {query}</h1>
+      {/* Render search results here */}
+    </section>
+  );
+}
