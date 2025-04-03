@@ -12,11 +12,11 @@ import {
 } from "@/components/ui/breadcrumb";
 import ArtCard from "@/components/Articles/ArtCard";
 
-interface PageProps {
-  params: {
-    link: string;
-  };
-}
+type PageParams = { link: string };
+
+type PageProps = {
+  params: PageParams | Promise<PageParams>;
+};
 
 export async function generateStaticParams() {
   return categories.map((category) => ({
@@ -27,7 +27,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { link } = await params;
+  const { link } = await Promise.resolve(params);
   const category = categories.find((cat) => cat.link === link);
 
   return {
@@ -45,7 +45,7 @@ export async function generateMetadata({
 }
 
 export default async function CategoryPage({ params }: PageProps) {
-  const { link } = await params;
+  const { link } = await Promise.resolve(params);
   const category = categories.find((cat) => cat.link === link);
 
   const posts = await fetchPosts();

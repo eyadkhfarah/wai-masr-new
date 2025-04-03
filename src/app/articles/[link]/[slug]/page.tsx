@@ -15,12 +15,11 @@ import ArtCard from "@/components/Articles/ArtCard";
 import Link from "next/link";
 import { fetchPosts } from "@/lib/notion";
 
-interface PageProps {
-  params: {
-    link: string;
-    slug: string;
-  };
-}
+type PageParams = { link: string; slug: string };
+
+type PageProps = {
+  params: PageParams | Promise<PageParams>;
+};
 
 // ✅ Fixed: Correctly generates static paths for dynamic routing
 export async function generateStaticParams() {
@@ -40,7 +39,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug } = await Promise.resolve(params);
 
   // Find the primary category that contains this secondary category.
   const mainCategory = categories.find((category) =>
@@ -85,7 +84,7 @@ export async function generateMetadata({
 
 // ✅ Fixed: Handles missing categories with fallback UI
 export default async function SubCategoryPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { slug } = await await Promise.resolve(params);;
   // Find the primary category that contains this secondary category.
   const mainCategory = categories.find((category) =>
     category.SecondaryCategory.some((sub) => sub.slug === slug)
