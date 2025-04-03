@@ -18,7 +18,7 @@ import { fetchPosts } from "@/lib/notion";
 type PageParams = { link: string; slug: string };
 
 type PageProps = {
-  params: PageParams | Promise<PageParams>;
+  params: Promise<PageParams>;
 };
 
 // ✅ Fixed: Correctly generates static paths for dynamic routing
