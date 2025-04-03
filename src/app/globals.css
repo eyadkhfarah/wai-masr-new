@@ -105,6 +105,6 @@ body {
   }
 
   section {
-    @apply mx-auto lg:max-w-7xl md:max-w-2xl max-w-md py-8 grid gap-8
+    @apply mx-auto lg:max-w-7xl md:max-w-2xl max-w-md px-8 py-8 grid gap-8
   }
 }
