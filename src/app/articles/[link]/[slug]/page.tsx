@@ -17,7 +17,7 @@ import { fetchPosts } from "@/lib/notion";
 
 interface PageProps {
   params: {
-    mainLink: string;
+    link: string;
     slug: string;
   };
 }
@@ -28,7 +28,7 @@ export async function generateStaticParams() {
   for (const category of categories) {
     for (const sub of category.SecondaryCategory) {
       paths.push({
-        mainLink: category.link,
+        link: category.link,
         slug: sub.slug,
       });
     }
