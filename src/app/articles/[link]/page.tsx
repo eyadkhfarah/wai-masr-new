@@ -15,7 +15,7 @@ import ArtCard from "@/components/Articles/ArtCard";
 type PageParams = { link: string };
 
 type PageProps = {
-  params: PageParams | Promise<PageParams>;
+  params: Promise<PageParams>;
 };
 
 export async function generateStaticParams() {
