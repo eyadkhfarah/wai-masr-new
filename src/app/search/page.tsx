@@ -11,8 +11,8 @@ type SearchPageProps = {
   searchParams: SearchPageParams;
 };
 
-export function generateMetadata({ searchParams }: SearchPageProps): Metadata {
-  const query = searchParams.query;
+export async function generateMetadata({ searchParams }: SearchPageProps): Promise<Metadata> {
+  const query = await searchParams.query;
   const title = query ? `نتائج البحث لـ "${query}"` : 'صفحة البحث';
   const description = query
       ? `عرض نتائج البحث المتعلقة بـ "${query}".`
@@ -33,8 +33,8 @@ export function generateMetadata({ searchParams }: SearchPageProps): Metadata {
   };
 }
 
-export default function SearchPage({ searchParams }: SearchPageProps) {
-  const query = searchParams.query;
+export default async function SearchPage({ searchParams }: SearchPageProps) {
+  const query = await searchParams.query;
 
   // Implement your search logic here using the 'query' parameter
 
