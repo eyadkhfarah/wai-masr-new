@@ -2,9 +2,14 @@
 
 import { Metadata } from 'next';
 
-interface SearchPageProps {
-  searchParams: { [key: string]: string | string[] | undefined };
-}
+type SearchPageParams = {
+  query?: string;
+  [key: string]: string | string[] | undefined;
+};
+
+type SearchPageProps = {
+  searchParams: SearchPageParams;
+};
 
 export function generateMetadata({ searchParams }: SearchPageProps): Metadata {
   const query = searchParams.query;
