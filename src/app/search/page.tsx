@@ -1,22 +1,24 @@
 // app/search/page.tsx
 
-import { Metadata } from 'next';
+import { Metadata } from "next";
 
-type SearchPageParams = {
-  query?: string;
+type SearchPageParams = Promise<{
+  query: string;
   [key: string]: string | string[] | undefined;
-};
+}>;
 
 type SearchPageProps = {
   searchParams: SearchPageParams;
 };
 
-export async function generateMetadata({ searchParams }: SearchPageProps): Promise<Metadata> {
-  const query = await searchParams.query;
-  const title = query ? `نتائج البحث لـ "${query}"` : 'صفحة البحث';
+export async function generateMetadata({
+  searchParams,
+}: SearchPageProps): Promise<Metadata> {
+  const query = (await searchParams).query;
+  const title = query ? `نتائج البحث لـ "${query}"` : "صفحة البحث";
   const description = query
-      ? `عرض نتائج البحث المتعلقة بـ "${query}".`
-      : 'استخدم صفحة البحث للعثور على المحتوى المطلوب.';
+    ? `عرض نتائج البحث المتعلقة بـ "${query}".`
+    : "استخدم صفحة البحث للعثور على المحتوى المطلوب.";
 
   return {
     title,
@@ -26,7 +28,7 @@ export async function generateMetadata({ searchParams }: SearchPageProps): Promi
       description,
     },
     twitter: {
-      card: 'summary',
+      card: "summary",
       title,
       description,
     },
@@ -34,7 +36,7 @@ export async function generateMetadata({ searchParams }: SearchPageProps): Promi
 }
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
-  const query = await searchParams.query;
+  const query = (await searchParams).query;
 
   // Implement your search logic here using the 'query' parameter
 
