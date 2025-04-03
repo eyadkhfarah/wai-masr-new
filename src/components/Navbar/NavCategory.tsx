@@ -18,7 +18,7 @@ import {
 export default function NavCategory() {
   return (
     <>
-      <div className="flex items-center gap-7">
+      <div className="md:flex hidden items-center gap-7">
         {categories.map((category, i) => (
           <Link
             key={i}
