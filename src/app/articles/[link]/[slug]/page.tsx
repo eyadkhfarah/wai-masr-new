@@ -39,7 +39,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await Promise.resolve(params);
+  const { slug } = await params;
 
   // Find the primary category that contains this secondary category.
   const mainCategory = categories.find((category) =>
@@ -84,7 +84,7 @@ export async function generateMetadata({
 
 // ✅ Fixed: Handles missing categories with fallback UI
 export default async function SubCategoryPage({ params }: PageProps) {
-  const { slug } = await await Promise.resolve(params);;
+  const { slug } = await params;
   // Find the primary category that contains this secondary category.
   const mainCategory = categories.find((category) =>
     category.SecondaryCategory.some((sub) => sub.slug === slug)

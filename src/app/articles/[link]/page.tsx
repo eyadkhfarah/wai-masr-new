@@ -27,7 +27,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { link } = await Promise.resolve(params);
+  const { link } = await params;
   const category = categories.find((cat) => cat.link === link);
 
   return {
@@ -45,7 +45,7 @@ export async function generateMetadata({
 }
 
 export default async function CategoryPage({ params }: PageProps) {
-  const { link } = await Promise.resolve(params);
+  const { link } = await params;
   const category = categories.find((cat) => cat.link === link);
 
   const posts = await fetchPosts();
