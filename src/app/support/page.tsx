@@ -41,7 +41,7 @@ export default function page() {
 					</div>
 				</div>
 
-				<div className="bg-red grid gap-4 h-hit text-sm p-4 lg:m-0 mt-5">
+				<div className="bg-primary grid gap-4 h-hit text-sm p-4 lg:m-0 mt-5">
 					<h2 className="text-white lg:3xl text-xl">لو من برا مصر تقدر تتبرع هنا</h2>
 
 					<PayPal />

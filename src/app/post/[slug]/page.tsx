@@ -21,6 +21,9 @@ import { RiUserLine } from "react-icons/ri";
 
 type Params = Promise<{ slug: string }>;
 
+// Revalidate this page every 1 second
+export const revalidate = 1;
+
 export async function generateMetadata({
   params,
 }: {

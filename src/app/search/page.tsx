@@ -35,6 +35,9 @@ export async function generateMetadata({
   };
 }
 
+// Revalidate this page every 1 second
+export const revalidate = 1;
+
 export default async function SearchPage({ searchParams }: SearchPageProps) {
   const query = (await searchParams).query;
 

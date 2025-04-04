@@ -1,24 +1,27 @@
 import { fetchPosts } from "../../lib/notion";
 import RSS from "rss";
 
-export async function GET() {
-  // const siteUrl =
-  //   process.env.NEXT_PUBLIC_DOMAIN_URL ||
-  //   "https://designs-by-eyad.vercel.app";
+// Revalidate this page every 1 second
+export const revalidate = 1;
 
-  // // Create a new feed instance each time GET runs
-  // const feed = new RSS({
-  //   title: "Designs By Eyad — Creative Branding & Web Design Portfolio",
-  //   description: "A cool website that everyone should check out!",
-  //   site_url: siteUrl,
-  //   feed_url: `${siteUrl}/rss.xml`,
-  //   copyright: `${new Date().getFullYear()} Designs By Eyad`,
-  //   language: "en",
-  //   pubDate: new Date(),
-  // });
+export async function GET() {
+  const siteUrl =
+    process.env.NEXT_PUBLIC_DOMAIN_URL ||
+    "https://w3ieg.com";
+
+  // Create a new feed instance each time GET runs
+  const feed = new RSS({
+    title: "وعي مصر",
+    description: "نبض التيار القومي المصري!",
+    site_url: siteUrl,
+    feed_url: `${siteUrl}/rss.xml`,
+    copyright: `${new Date().getFullYear()} Designs By Eyad`,
+    language: "en",
+    pubDate: new Date(),
+  });
 
   // // Fetch posts from Notion
-  // const posts = await fetchPosts();
+  const posts = await fetchPosts();
 
   // // Loop over each post and add an item to the RSS feed
   // posts.results.forEach((post: any) => {

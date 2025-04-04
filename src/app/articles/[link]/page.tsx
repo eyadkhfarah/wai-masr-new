@@ -12,6 +12,9 @@ import {
 } from "@/components/ui/breadcrumb";
 import ArtCard from "@/components/Articles/ArtCard";
 
+// Revalidate this page every 1 second
+export const revalidate = 1;
+
 type PageParams = { link: string };
 
 type PageProps = {

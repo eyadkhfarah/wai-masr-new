@@ -15,6 +15,9 @@ import ArtCard from "@/components/Articles/ArtCard";
 import Link from "next/link";
 import { fetchPosts } from "@/lib/notion";
 
+// Revalidate this page every 1 second
+export const revalidate = 1;
+
 type PageParams = { link: string; slug: string };
 
 type PageProps = {

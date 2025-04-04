@@ -17,17 +17,11 @@ export const NavList: NavLink[] = [
     name: "المكتبة القومية",
     link: "https://www.maktabaqawmya.com/",
     newTab: true,
-    id: 5,
+    id: 3,
   },
   {
     name: "اتعلم اللغة المصرية",
     link: "/eg-lang",
-    newTab: false,
-    id: 6,
-  },
-  {
-    name: "فعاليات",
-    link: "/events",
     newTab: false,
     id: 4,
   },
@@ -35,6 +29,6 @@ export const NavList: NavLink[] = [
     name: "البومات",
     link: "/images",
     newTab: false,
-    id: 3,
+    id: 5,
   },
 ];

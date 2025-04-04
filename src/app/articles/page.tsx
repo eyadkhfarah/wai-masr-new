@@ -2,7 +2,6 @@ import ArtCard from "@/components/Articles/ArtCard";
 import { categories } from "@/lib/categories";
 import { fetchPosts } from "@/lib/notion";
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -24,6 +23,9 @@ export const metadata: Metadata = {
     url: meta.url,
   },
 };
+
+// Revalidate this page every 1 second
+export const revalidate = 1;
 
 export default async function page() {
   const posts = await fetchPosts();
