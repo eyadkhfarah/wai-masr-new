@@ -55,7 +55,7 @@ export default function ArtBentoGrid1({ post }: ArtBentoGrid1Props) {
                       {post.properties.Name?.title?.[0]?.plain_text ||
                         "Default Title"}
                     </h3>
-                    <p className="text-sm w-fit text-gray-300 mt-1">
+                    <p className="text-sm w-fit text-gray-500 mt-1">
                       {post.properties.Publication?.date?.start
                         ? new Date(
                             post.properties.Publication.date.start
@@ -91,7 +91,7 @@ export default function ArtBentoGrid1({ post }: ArtBentoGrid1Props) {
                         <span className="text-xs w-fit bg-primary text-light dark:bg-light dark:text-primary font-bold px-2 py-1 rounded-md">
                           {post.properties.Category?.select?.name}
                         </span>
-                        <p className="dark:text-light/80">
+                        <p className="text-gray-500">
                           {post.properties.Publication?.date?.start
                             ? new Date(
                                 post.properties.Publication.date.start

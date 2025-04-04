@@ -104,7 +104,7 @@ export default function Navbar() {
       <nav
         className={`bg-white dark:bg-dark z-30 sticky top-0 w-full px-6 p-2 shadow-md`}
       >
-        <div className="mx-auto lg:max-w-7xl md:max-w-2xl max-w-md">
+        <div className="mx-auto lg:max-w-7xl md:max-w-4xl max-w-md">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-10">
               <Link

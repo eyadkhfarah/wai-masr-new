@@ -33,10 +33,10 @@ export default function ArtHeader({ post, index }: ArtHeaderProps) {
 
       {/* Text Content Overlay */}
       <div className="absolute w-full bottom-5 left-5 text-white p-5 px-16">
-        <p className=" uppercase font-semibold opacity-80">{post.properties.Category.select.name}</p>
+        <p className="text-gray-200">{post.properties.Category.select.name}</p>
         <h2 className="text-4xl font-bold text-light">{post.properties.Name.title[0].plain_text}</h2>
         {/* Make the date in arabic */}
-        <p className="text-sm mt-2 opacity-80">{publicationDate} · {post.properties.Author.select.name}</p>
+        <p className="text-sm mt-2 text-gray-200">{publicationDate} · {post.properties.Author.select.name}</p>
       </div>
     </Link>
   );

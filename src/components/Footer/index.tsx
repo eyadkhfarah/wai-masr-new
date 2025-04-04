@@ -24,8 +24,8 @@ export default function Footer() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <footer className="grid gap-8 p-5 w-full md:p-7 md:px-32 pb-24 bg-primary text-white">
-      <div className="mx-auto lg:max-w-7xl md:max-w-2xl max-w-md">
+    <footer className="grid gap-8 p-5 w-full pb-24 bg-primary text-white">
+      <div className="mx-auto lg:max-w-7xl md:max-w-4xl max-w-md">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* القسم الأول: الاشتراك */}
           <div className="grid col-span-1 md:col-span-2">
@@ -158,7 +158,7 @@ export default function Footer() {
                 width={130}
               />
             </Link>
-            <span>|</span>
+            <span className="lg:block hidden">|</span>
             <ul className="flex flex-wrap justify-center md:justify-start items-center gap-4 md:gap-9">
               {footerLink.map((link, index) => (
                 <li key={index}>
@@ -173,13 +173,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="text-center md:text-right">
-            <p>© {new Date().getFullYear()} وعي مصر - جميع الحقوق محفوظة</p>
-            <p>
+          <div className="text-center md:text-right text-light">
+            <p className="text-light">© {new Date().getFullYear()} وعي مصر - جميع الحقوق محفوظة</p>
+            <p className="text-light">
               تم بناء الموقع من خلال{" "}
               <Link
                 href="https://designs-by-eyad.vercel.app"
-                className="transition-all ease-in-out duration-300 underline hover:text-light"
+                className="transition-all ease-in-out duration-300 underline text-light hover:text-light"
               >
                 Designs By Eyad
               </Link>

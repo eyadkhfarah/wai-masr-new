@@ -6,6 +6,7 @@ import Btn from "@/components/Button/Btn";
 import egyTalk from "@/components/Icons/egyTalks";
 import { RiPlayReverseLargeFill } from "react-icons/ri";
 import EgyTalk from "@/components/Icons/egyTalks";
+import ArticleListItem from "@/components/Articles/ArticleListItem";
 
 // Revalidate this page every 1 second
 export const revalidate = 1;
@@ -44,8 +45,8 @@ export default async function Home() {
             <FeaturedArticle key={i} post={post} />
           ))}
 
-          <div className="col-span-2 grid h-full">
-            {articles.slice(1, 4).map((post, i) => (
+          <div className="md:col-span-2 grid h-full">
+            {articles.slice(1, 4).map((post: any, i) => (
               <ArticleListItem key={i} post={post} />
             ))}
           </div>
@@ -53,13 +54,16 @@ export default async function Home() {
       </section>
 
       <section>
+
         <Link
           href={"https://www.youtube.com/@EgyTalks"}
-          className="cursor-pointer relative group overflow-hidden rounded-2xl"
+          className="cursor-pointer h-full relative group overflow-hidden rounded-2xl"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {/* Article Image with Hover Effect */}
           <Image
-            className="w-full -z-20 object-cover"
+            className="w-full md:h-fit bg-center h-[500px] -z-20 object-cover md:object-left object-center"
             alt={"قناة EGY Talks"}
             src={`/images/egyTalks.webp`}
             width={1200}
@@ -70,13 +74,13 @@ export default async function Home() {
           <div className="absolute inset-0 bg-linear-to-l from-primary via-black/40 to-transparent"></div>
 
           {/* Text Content Overlay */}
-          <div className="absolute w-full bottom-14 left-5 text-white p-5 px-16">
-            <h2 className="text-4xl font-bold text-light flex items-center gap-6">
+          <div className="absolute w-full md:bottom-14 bottom-0 left-5 text-white p-5 px-16">
+            <h2 className="lg:text-4xl text-2xl font-bold text-light flex items-center gap-6">
               أشترك في قناة <EgyTalk />
               <span className="sr-only">أشترك في قناة EGY Talks</span>
             </h2>
             {/* Make the date in arabic */}
-            <p className="text-lg w-xl mt-2 opacity-80">
+            <p className="text-light text-lg md:w-xl mt-2 opacity-80">
               وأتفرج علي أحدث الفيديوهات عن مصر وتاريخ مصر والقومية المصرية وأهم القضايا في
               الموسم التاني
             </p>
@@ -159,41 +163,5 @@ function FeaturedArticle({ post }: any) {
         </p>
       </div>
     </Link>
-  );
-}
-
-function ArticleListItem({ post }: any) {
-  return (
-    <div className="flex justify-between items-center gap-10 border-b-2 py-5">
-      <div className="grid">
-        <h3 className="text-dark dark:text-light font-bold text-xl">
-          {post.properties.Name?.title?.[0]?.plain_text || "Default Title"}
-        </h3>
-        <p className="dark:text-light/50 line-clamp-2">
-          {post.properties.Summary?.rich_text?.[0]?.plain_text || "No Summary"}
-        </p>
-        <div className="flex items-center gap-5 mt-3">
-          <span className="text-xs w-fit bg-primary text-light dark:bg-light dark:text-primary font-bold px-2 py-1 rounded-md">
-            {post.properties.Category?.select?.name}
-          </span>
-          <p className="dark:text-light/80">
-            {post.properties.Publication?.date?.start
-              ? new Date(
-                  post.properties.Publication.date.start
-                ).toLocaleDateString("ar-EG", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })
-              : "Unknown Date"}
-          </p>
-        </div>
-      </div>
-      <Btn
-        label="أقرا أكتر"
-        link={`/post/${post.properties.Slug.rich_text[0].plain_text}`}
-        newTab={false}
-      />
-    </div>
   );
 }

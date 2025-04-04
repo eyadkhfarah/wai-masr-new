@@ -28,8 +28,8 @@ export default function UpperNav() {
     return () => clearInterval(interval); // Cleanup interval on unmount
   }, []);
   return (
-    <nav className="bg-primary text-light w-full p-3 lg:block hidden">
-      <div className="mx-auto flex items-center justify-between lg:max-w-7xl md:max-w-2xl max-w-md">
+    <nav className="bg-primary text-light w-full p-3 md:block hidden">
+      <div className="mx-auto flex items-center justify-between lg:max-w-7xl md:max-w-4xl max-w-md">
         <span className="flex items-center gap-5">
           {currentDate}
           {"  "}•{"   "} {currentTime}
